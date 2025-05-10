@@ -1,0 +1,1965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thug of Gains - Premium Nutrition</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Logo Animation Styles */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap');
+        
+        #logo-intro {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: #000000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            overflow: hidden;
+            font-family: 'Montserrat', sans-serif;
+            transition: opacity 0.5s ease-out;
+        }
+        
+        .logo-container {
+            position: relative;
+            text-align: center;
+        }
+        
+        .thug-text, .gains-text {
+            font-size: 4rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+            opacity: 0;
+        }
+        
+        .thug-text {
+            animation: fadeInGlow 0.8s forwards 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+        }
+        
+        .gains-text {
+            animation: fadeInGlow 0.8s forwards 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(39, 174, 96, 0.5);
+        }
+        
+        .of {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #7f8c8d;
+            margin: 0 10px;
+            display: inline-block;
+            opacity: 0;
+            animation: fadeIn 0.8s forwards 0.9s;
+            position: relative;
+            top: -5px;
+        }
+        
+        /* Nutrition elements - subtle and professional */
+        .nutrition-icon {
+            position: absolute;
+            opacity: 0;
+            font-size: 1.4rem;
+            filter: drop-shadow(0 0 4px rgba(255,255,255,0.2));
+        }
+        
+        .apple {
+            top: 15%;
+            left: 15%;
+            color: #e74c3c;
+            animation: floatIn 0.8s forwards 1.2s;
+        }
+        
+        .leaf {
+            top: 80%;
+            right: 15%;
+            color: #27ae60;
+            animation: floatIn 0.8s forwards 1.4s;
+        }
+        
+        .protein {
+            bottom: 20%;
+            left: 20%;
+            color: #ffffff;
+            animation: floatIn 0.8s forwards 1.6s;
+        }
+        
+        .grains {
+            top: 30%;
+            right: 20%;
+            color: #f1c40f;
+            animation: floatIn 0.8s forwards 1.8s;
+        }
+        
+        @keyframes fadeInGlow {
+            0% {
+                opacity: 0;
+                transform: translateY(10px);
+                text-shadow: 0 0 20px rgba(255,255,255,0);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+                text-shadow: 0 0 10px rgba(255,255,255,0.3);
+            }
+        }
+        
+        @keyframes fadeIn {
+            0% { 
+                opacity: 0;
+                transform: translateY(5px);
+            }
+            100% { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes floatIn {
+            0% {
+                transform: translateY(15px) scale(0.8);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0) scale(1);
+                opacity: 0.7;
+            }
+        }
+        
+        /* Hover effects */
+        .logo-container:hover .thug-text {
+            text-shadow: 0 0 15px rgba(231, 76, 60, 0.7);
+            transition: text-shadow 0.3s ease;
+        }
+        
+        .logo-container:hover .gains-text {
+            text-shadow: 0 0 15px rgba(39, 174, 96, 0.7);
+            transition: text-shadow 0.3s ease;
+        }
+        
+        .logo-container:hover .of {
+            color: #bdc3c7;
+            transition: color 0.3s ease;
+        }
+        
+        /* Optional: Add a very subtle grid pattern to background */
+        #logo-intro::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -1;
+        }
+
+        /* Main Content Styles (initially hidden) */
+        #main-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in;
+        }
+
+        #main-content.show {
+            opacity: 1;
+        }
+
+        /* Rest of your existing styles */
+        :root {
+          --primary: #4CAF50;
+          --primary-dark: #388E3C;
+          --secondary: #FFC107;
+          --dark: #212121;
+          --light: #F5F5F5;
+          --danger: #F44336;
+          --success: #8BC34A;
+        }
+        
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+          background-color: #f9f9f9;
+          color: var(--dark);
+          line-height: 1.6;
+        }
+        
+        .container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 20px;
+        }
+        
+        header {
+          background-color: var(--primary);
+          color: white;
+          padding: 1rem 0;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .navbar {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        
+        .logo {
+          font-size: 1.8rem;
+          font-weight: bold;
+        }
+        
+        .logo span {
+          color: var(--secondary);
+        }
+        
+        .nav-links {
+          display: flex;
+          list-style: none;
+        }
+        
+        .nav-links li {
+          margin-left: 1.5rem;
+        }
+        
+        .nav-links a {
+          color: white;
+          text-decoration: none;
+          font-weight: 500;
+          transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+          color: var(--secondary);
+        }
+        
+        .hero {
+          padding: 4rem 0;
+          text-align: center;
+          background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80') center/cover;
+          color: white;
+        }
+        
+        .hero h1 {
+          font-size: 2.5rem;
+          margin-bottom: 1rem;
+        }
+        
+        .hero p {
+          font-size: 1.2rem;
+          max-width: 800px;
+          margin: 0 auto;
+          margin-bottom: 2rem;
+        }
+        
+        .btn {
+          display: inline-block;
+          padding: 0.8rem 1.5rem;
+          background-color: var(--primary);
+          color: white;
+          text-decoration: none;
+          border-radius: 4px;
+          font-weight: 500;
+          transition: background-color 0.3s;
+          border: none;
+          cursor: pointer;
+        }
+        
+        .btn:hover {
+          background-color: var(--primary-dark);
+        }
+        
+        .btn-secondary {
+          background-color: var(--secondary);
+          color: var(--dark);
+        }
+        
+        .btn-secondary:hover {
+          background-color: #e6ac00;
+        }
+        
+        .section {
+          padding: 4rem 0;
+        }
+        
+        .section-title {
+          text-align: center;
+          margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+          font-size: 2rem;
+          color: var(--primary);
+          position: relative;
+          display: inline-block;
+          padding-bottom: 0.5rem;
+        }
+        
+        .section-title h2::after {
+          content: '';
+          position: absolute;
+          left: 25%;
+          bottom: 0;
+          width: 50%;
+          height: 3px;
+          background-color: var(--secondary);
+        }
+        
+        .calculator {
+          background-color: white;
+          padding: 2rem;
+          border-radius: 8px;
+          box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+          max-width: 800px;
+          margin: 0 auto;
+        }
+        
+        .form-group {
+          margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+          display: block;
+          margin-bottom: 0.5rem;
+          font-weight: 500;
+        }
+        
+        .form-control {
+          width: 100%;
+          padding: 0.8rem;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+          font-size: 1rem;
+        }
+        
+        .radio-group {
+          display: flex;
+          gap: 20px;
+        }
+        
+        .radio-group div {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+        }
+        
+        .results {
+          margin-top: 2rem;
+          padding: 1.5rem;
+          background-color: #f0f8ff;
+          border-radius: 8px;
+          border-left: 4px solid var(--primary);
+        }
+        
+        .results h3 {
+          color: var(--primary);
+          margin-bottom: 0.5rem;
+        }
+        
+        .plan-selection {
+          margin-top: 1.5rem;
+        }
+        
+        .diet-type-selection {
+          margin-top: 1.5rem;
+          display: none;
+        }
+        
+        .food-items {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1rem;
+          margin-top: 1rem;
+        }
+        
+        .food-category {
+          flex: 1;
+          min-width: 250px;
+          border: 1px solid #ddd;
+          border-radius: 8px;
+          padding: 1rem;
+          background-color: white;
+        }
+        
+        .food-category h4 {
+          color: var(--primary);
+          margin-bottom: 0.8rem;
+          border-bottom: 2px solid var(--secondary);
+          padding-bottom: 0.5rem;
+        }
+        
+        .food-item {
+          margin-bottom: 0.8rem;
+          display: flex;
+          justify-content: space-between;
+        }
+        
+        .meal-plan {
+          margin-top: 2rem;
+          padding: 1.5rem;
+          background-color: #f9f9f9;
+          border-radius: 8px;
+        }
+        
+        .meal {
+          margin-bottom: 1.5rem;
+          padding: 1rem;
+          background-color: white;
+          border-radius: 8px;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .meal h4 {
+          color: var(--primary);
+          margin-bottom: 0.5rem;
+          border-bottom: 1px solid #eee;
+          padding-bottom: 0.5rem;
+        }
+        
+        .meal-macros {
+          display: flex;
+          gap: 1rem;
+          margin-top: 0.5rem;
+          font-size: 0.9rem;
+          color: #666;
+        }
+        
+        .macro {
+          display: flex;
+          align-items: center;
+          gap: 0.3rem;
+        }
+        
+        .macro-icon {
+          width: 16px;
+          height: 16px;
+          border-radius: 50%;
+        }
+        
+        .protein-icon {
+          background-color: #F44336;
+        }
+        
+        .carb-icon {
+          background-color: #4CAF50;
+        }
+        
+        .fat-icon {
+          background-color: #FFC107;
+        }
+        
+        .daily-summary {
+          margin-top: 1.5rem;
+          padding: 1rem;
+          background-color: #f0f8ff;
+          border-radius: 8px;
+          border-left: 4px solid var(--primary);
+        }
+        
+        .progress-container {
+          height: 20px;
+          background-color: #e9ecef;
+          border-radius: 10px;
+          margin: 1rem 0;
+          overflow: hidden;
+        }
+        
+        .progress-bar {
+          height: 100%;
+          border-radius: 10px;
+          display: flex;
+          flex-direction: row;
+        }
+        
+        .progress-segment-protein {
+          background-color: #F44336;
+          width: 40%;
+          height: 100%;
+        }
+        
+        .progress-segment-carbs {
+          background-color: #4CAF50;
+          width: 40%;
+          height: 100%;
+        }
+        
+        .progress-segment-fats {
+          background-color: #FFC107;
+          width: 20%;
+          height: 100%;
+        }
+        
+        .legend {
+          display: flex;
+          gap: 1rem;
+          justify-content: center;
+          margin-top: 0.5rem;
+        }
+        
+        .legend-item {
+          display: flex;
+          align-items: center;
+          gap: 0.3rem;
+          font-size: 0.9rem;
+        }
+        
+        .tabs {
+          display: flex;
+          margin-bottom: 2rem;
+          border-bottom: 1px solid #ddd;
+        }
+        
+        .tab {
+          padding: 0.8rem 1.2rem;
+          cursor: pointer;
+          font-weight: 500;
+          border-bottom: 3px solid transparent;
+        }
+        
+        .tab.active {
+          color: var(--primary);
+          border-bottom-color: var(--primary);
+        }
+
+        .tab-content {
+          display: none;
+        }
+        
+        .tab-content.active {
+          display: block;
+        }
+        
+        .result-item {
+          margin-bottom: 1rem;
+          padding: 1rem;
+          background-color: white;
+          border-radius: 8px;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .result-item h4 {
+          color: var(--primary);
+          margin-bottom: 0.5rem;
+        }
+        
+        .result-value {
+          font-size: 1.2rem;
+          font-weight: bold;
+          color: var(--dark);
+        }
+        
+        .result-description {
+          font-size: 0.9rem;
+          color: #666;
+          margin-top: 0.5rem;
+        }
+        
+        .goal-buttons {
+          display: flex;
+          gap: 10px;
+          margin-top: 15px;
+          flex-wrap: wrap;
+        }
+        
+        .goal-button {
+          flex: 1;
+          min-width: 120px;
+        }
+        
+        .diet-type-buttons {
+          display: flex;
+          gap: 10px;
+          margin-top: 15px;
+        }
+        
+        .diet-type-button {
+          flex: 1;
+          min-width: 120px;
+        }
+        
+        /* Workout Plan Styles */
+        .workout-plans {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 20px;
+          justify-content: center;
+          margin-top: 2rem;
+        }
+        
+        .workout-card {
+          background-color: white;
+          border-radius: 8px;
+          box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+          overflow: hidden;
+          width: 350px;
+          transition: transform 0.3s;
+        }
+        
+        .workout-card:hover {
+          transform: translateY(-5px);
+        }
+        
+        .workout-image {
+          height: 200px;
+          background-size: cover;
+          background-position: center;
+        }
+        
+        .workout-content {
+          padding: 1.5rem;
+        }
+        
+        .workout-content h3 {
+          color: var(--primary);
+          margin-bottom: 0.5rem;
+        }
+        
+        .workout-content p {
+          color: #666;
+          margin-bottom: 1rem;
+        }
+        
+        .workout-days {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 5px;
+          margin-top: 1rem;
+        }
+        
+        .day-pill {
+          background-color: var(--primary);
+          color: white;
+          padding: 0.3rem 0.8rem;
+          border-radius: 20px;
+          font-size: 0.8rem;
+        }
+        
+        /* Home Workout Styles */
+        .home-workout {
+          background-color: white;
+          border-radius: 8px;
+          padding: 2rem;
+          box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+          margin-top: 2rem;
+        }
+        
+        .workout-routine {
+          margin-bottom: 2rem;
+        }
+        
+        .workout-routine h3 {
+          color: var(--primary);
+          margin-bottom: 1rem;
+          border-bottom: 2px solid var(--secondary);
+          padding-bottom: 0.5rem;
+        }
+        
+        .exercise-list {
+          list-style-type: none;
+        }
+        
+        .exercise-item {
+          padding: 0.8rem;
+          border-bottom: 1px solid #eee;
+          display: flex;
+          justify-content: space-between;
+        }
+        
+        .exercise-item:last-child {
+          border-bottom: none;
+        }
+        
+        .exercise-name {
+          font-weight: 500;
+        }
+        
+        .exercise-sets {
+          color: #666;
+        }
+        
+        /* Contact Form Styles */
+        .contact-form {
+          background-color: white;
+          padding: 2rem;
+          border-radius: 8px;
+          box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+          max-width: 600px;
+          margin: 0 auto;
+          display: none; /* Initially hidden */
+        }
+        
+        .form-row {
+          display: flex;
+          gap: 20px;
+          margin-bottom: 1.5rem;
+        }
+        
+        .form-col {
+          flex: 1;
+        }
+        
+        textarea.form-control {
+          min-height: 150px;
+          resize: vertical;
+        }
+        
+        /* Chatbot Styles */
+        .chatbot-container {
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          width: 350px;
+          z-index: 1000;
+        }
+        
+        .chatbot-toggle {
+          background-color: var(--primary);
+          color: white;
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+          margin-left: auto;
+        }
+        
+        .chatbot-toggle i {
+          font-size: 1.5rem;
+        }
+        
+        .chatbot-window {
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+          overflow: hidden;
+          display: none;
+          height: 400px;
+          flex-direction: column;
+        }
+        
+        .chatbot-window.active {
+          display: flex;
+        }
+        
+        .chatbot-header {
+          background-color: var(--primary);
+          color: white;
+          padding: 15px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        
+        .chatbot-header h3 {
+          margin: 0;
+          font-size: 1.2rem;
+        }
+        
+        .chatbot-close {
+          background: none;
+          border: none;
+          color: white;
+          font-size: 1.2rem;
+          cursor: pointer;
+        }
+        
+        .chatbot-messages {
+          flex: 1;
+          padding: 15px;
+          overflow-y: auto;
+          background-color: #f9f9f9;
+        }
+        
+        .message {
+          margin-bottom: 15px;
+          max-width: 80%;
+          padding: 10px 15px;
+          border-radius: 18px;
+          font-size: 0.9rem;
+          line-height: 1.4;
+        }
+        
+        .bot-message {
+          background-color: white;
+          color: #333;
+          border-top-left-radius: 0;
+          align-self: flex-start;
+          box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .user-message {
+          background-color: var(--primary);
+          color: white;
+          border-top-right-radius: 0;
+          align-self: flex-end;
+          margin-left: auto;
+        }
+        
+        .chatbot-input {
+          display: flex;
+          padding: 10px;
+          background-color: white;
+          border-top: 1px solid #eee;
+        }
+        
+        .chatbot-input input {
+          flex: 1;
+          padding: 10px;
+          border: 1px solid #ddd;
+          border-radius: 20px;
+          outline: none;
+        }
+        
+        .chatbot-input button {
+          background-color: var(--primary);
+          color: white;
+          border: none;
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          margin-left: 10px;
+          cursor: pointer;
+        }
+        
+        /* Disclaimer Styles */
+        .disclaimer {
+          background-color: #fff3cd;
+          color: #856404;
+          padding: 1rem;
+          border-left: 4px solid #ffeeba;
+          margin: 1rem 0;
+          border-radius: 4px;
+          font-size: 0.9rem;
+        }
+        
+        .disclaimer h4 {
+          margin-bottom: 0.5rem;
+          color: #856404;
+        }
+        
+        footer {
+          background-color: var(--dark);
+          color: white;
+          padding: 2rem 0;
+          text-align: center;
+          margin-top: 4rem;
+        }
+        
+        .footer-links {
+          display: flex;
+          justify-content: center;
+          list-style: none;
+          margin: 1rem 0;
+        }
+        
+        .footer-links li {
+          margin: 0 1rem;
+        }
+        
+        .footer-links a {
+          color: white;
+          text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+          color: var(--secondary);
+        }
+        
+        .copyright {
+          font-size: 0.9rem;
+          color: #aaa;
+        }
+        
+        @media (max-width: 768px) {
+          .navbar {
+            flex-direction: column;
+            align-items: flex-start;
+          }
+          
+          .nav-links {
+            margin-top: 1rem;
+            flex-direction: column;
+          }
+          
+          .nav-links li {
+            margin-left: 0;
+            margin-bottom: 0.5rem;
+          }
+          
+          .hero h1 {
+            font-size: 2rem;
+          }
+          
+          .hero p {
+            font-size: 1rem;
+          }
+          
+          .food-items {
+            flex-direction: column;
+          }
+          
+          .radio-group {
+            flex-direction: column;
+            gap: 10px;
+          }
+          
+          .goal-buttons {
+            flex-direction: column;
+          }
+          
+          .goal-button {
+            width: 100%;
+          }
+          
+          .diet-type-buttons {
+            flex-direction: column;
+          }
+          
+          .diet-type-button {
+            width: 100%;
+          }
+          
+          .workout-plans {
+            flex-direction: column;
+            align-items: center;
+          }
+          
+          .workout-card {
+            width: 100%;
+          }
+          
+          .form-row {
+            flex-direction: column;
+            gap: 0;
+          }
+          
+          .chatbot-container {
+            width: 90%;
+            right: 5%;
+            bottom: 10px;
+          }
+        }
+
+        /* Daily Quote Section */
+        .daily-quote {
+          background-color: white;
+          padding: 1.5rem;
+          border-radius: 8px;
+          box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+          margin: 2rem auto;
+          max-width: 800px;
+          border-left: 4px solid var(--primary);
+        }
+        
+        .daily-quote blockquote {
+          font-style: italic;
+          font-size: 1.2rem;
+          color: var(--dark);
+          margin-bottom: 0.5rem;
+          position: relative;
+          padding-left: 1.5rem;
+        }
+        
+        .daily-quote blockquote::before {
+          content: '"';
+          font-size: 3rem;
+          color: var(--primary);
+          position: absolute;
+          left: -0.5rem;
+          top: -1rem;
+          opacity: 0.3;
+        }
+        
+        .daily-quote .quote-author {
+          text-align: right;
+          font-weight: 500;
+          color: var(--primary-dark);
+        }
+        
+        .daily-quote .quote-date {
+          text-align: center;
+          font-size: 0.9rem;
+          color: #666;
+          margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Logo Intro Section -->
+    <div id="logo-intro">
+        <div class="logo-container">
+            <div class="thug-text">THUG</div>
+            <div class="of">OF</div>
+            <div class="gains-text">GAINS</div>
+            
+            <!-- Subtle nutrition icons -->
+            <div class="nutrition-icon apple">🥩</div> <!-- Protein icon -->
+            <div class="nutrition-icon leaf">🥗</div> <!-- Salad -->
+            <div class="nutrition-icon protein">🥚</div> <!-- Eggs -->
+            <div class="nutrition-icon grains">🌾</div> <!-- Grains -->
+        </div>
+    </div>
+
+    <!-- Main Content (initially hidden) -->
+    <div id="main-content">
+      <header>
+        <div class="container">
+          <nav class="navbar">
+            <div class="/logo">THUG<span> OF GAINS</span></div>
+            <ul class="nav-links">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#calculator">Calculator</a></li>
+              <li><a href="/workoutplans" target="_blank">Workout Plans</a></li>
+              <li><a href="/homeworkouts" target="_blank">Home Workouts</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="/Contact Us" target="_blank">Contact Us</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      
+      <section class="hero" id="home">
+        <div class="container">
+          <h1>Your Journey to Better Fitness Starts Here</h1>
+          <p>Get personalized diet plans based on your body metrics and fitness goals. Whether you want to lose weight or gain muscle, we have the right plan for you.</p>
+          <a href="#calculator" class="btn">Calculate Your BMR</a>
+        </div>
+      </section>
+      
+      <!-- Daily Quote Section -->
+      <div class="container">
+        <div class="daily-quote" id="daily-quote">
+          <!-- Quote will be inserted here by JavaScript -->
+        </div>
+      </div>
+      
+      <section class="section" id="calculator">
+        <div class="container">
+          <div class="section-title">
+            <h2>BMR & Maintenance Calorie Calculator</h2>
+          </div>
+          
+          <div class="disclaimer">
+            <h4>Disclaimer</h4>
+            <p>The content provided on this website, including workout plans, diet advice, and other fitness-related information, is based on personal experience and general knowledge. We are not certified nutritionists, dietitians, or fitness trainers. The information shared is not intended as a substitute for professional medical or fitness advice, diagnosis, or treatment.</p>
+            <p>Always consult with a qualified healthcare provider or certified professional before starting any new exercise program or making changes to your diet. Use of any information provided on this site is solely at your own risk.</p>
+          </div>
+          
+          <div class="calculator">
+            <div class="tabs">
+              <div class="tab active" data-tab="calculator">Calculator</div>
+              <div class="tab" data-tab="diet-plan">Diet Plan</div>
+              <div class="tab" data-tab="food-suggestions">Food Suggestions</div>
+            </div>
+            
+            <div class="tab-content active" id="calculator-tab">
+              <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" class="form-control" min="15" max="100" placeholder="Enter your age">
+              </div>
+              
+              <div class="form-group">
+                <label>Gender:</label>
+                <div class="radio-group">
+                  <div>
+                    <input type="radio" id="male" name="gender" value="male" checked>
+                    <label for="male">Male</label>
+                  </div>
+                  <div>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Female</label>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="height">Height (cm):</label>
+                <input type="number" id="height" class="form-control" min="120" max="250" placeholder="Enter your height">
+              </div>
+              
+              <div class="form-group">
+                <label for="weight">Weight (kg):</label>
+                <input type="number" id="weight" class="form-control" min="30" max="200" placeholder="Enter your weight">
+              </div>
+              
+              <div class="form-group">
+                <label for="activity">Activity Level:</label>
+                <select id="activity" class="form-control">
+                  <option value="1.2">Sedentary (little or no exercise)</option>
+                  <option value="1.375">Lightly active (light exercise/sports 1-3 days/week)</option>
+                  <option value="1.55" selected>Moderately active (moderate exercise/sports 3-5 days/week)</option>
+                  <option value="1.725">Very active (hard exercise/sports 6-7 days/week)</option>
+                  <option value="1.9">Super active (very hard exercise or physical job)</option>
+                </select>
+              </div>
+              
+              <button class="btn" onclick="calculateBMR()">Calculate</button>
+              
+              <div class="results" id="results" style="display: none;">
+                <h3>Your Results</h3>
+                
+                <div class="result-item">
+                  <h4>Basal Metabolic Rate (BMR)</h4>
+                  <div class="result-value" id="bmr-result">0 calories/day</div>
+                  <div class="result-description">This is how many calories your body needs at complete rest.</div>
+                </div>
+                
+                <div class="result-item">
+                  <h4>Maintenance Calories</h4>
+                  <div class="result-value" id="maintenance-result">0 calories/day</div>
+                  <div class="result-description">This is your daily calorie needs based on your activity level.</div>
+                </div>
+                
+                <div class="result-item">
+                  <h4>Body Mass Index (BMI)</h4>
+                  <div class="result-value" id="bmi-result">0</div>
+                  <div class="result-description" id="bmi-category">-</div>
+                </div>
+                
+                <div class="plan-selection" id="plan-selection">
+                  <h4>Choose Your Fitness Goal:</h4>
+                  <div class="goal-buttons">
+                    <button class="btn goal-button" onclick="selectPlan('weight-loss')">Weight Loss Plan</button>
+                    <button class="btn goal-button" onclick="selectPlan('weight-maintenance')">Maintenance Plan</button>
+                    <button class="btn btn-secondary goal-button" onclick="selectPlan('weight-gain')">Weight Gain Plan</button>
+                  </div>
+                </div>
+                
+                <div class="diet-type-selection" id="diet-type-selection">
+                  <h4>Choose Your Diet Preference:</h4>
+                  <div class="diet-type-buttons">
+                    <button class="btn diet-type-button" onclick="selectDietType('vegetarian')">Vegetarian</button>
+                    <button class="btn btn-secondary diet-type-button" onclick="selectDietType('nonVegetarian')">Non-Vegetarian</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="tab-content" id="diet-plan-tab">
+              <div id="plan-heading">
+                <h3>Your Personalized Diet Plan</h3>
+                <p id="plan-description"></p>
+              </div>
+              
+              <div class="daily-summary" id="daily-summary">
+                <h3>Daily Nutrient Targets</h3>
+                <div id="daily-calories"></div>
+                <div id="daily-macros"></div>
+                
+                <div class="progress-container">
+                  <div class="progress-bar">
+                    <div class="progress-segment-protein"></div>
+                    <div class="progress-segment-carbs"></div>
+                    <div class="progress-segment-fats"></div>
+                  </div>
+                </div>
+                
+                <div class="legend">
+                  <div class="legend-item">
+                    <div class="macro-icon protein-icon"></div>
+                    <span>Protein (40%)</span>
+                  </div>
+                  <div class="legend-item">
+                    <div class="macro-icon carb-icon"></div>
+                    <span>Carbs (40%)</span>
+                  </div>
+                  <div class="legend-item">
+                    <div class="macro-icon fat-icon"></div>
+                    <span>Fats (20%)</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="meal-plan" id="meal-plan">
+                <!-- Meals will be generated here -->
+              </div>
+              
+              <button class="btn" onclick="goBackToCalculator()">Back to Calculator</button>
+            </div>
+            
+            <div class="tab-content" id="food-suggestions-tab">
+              <h3>Indian Food Suggestions</h3>
+              <p>Here are some healthy Indian food options for your diet plan:</p>
+              
+              <div class="food-items">
+                <div class="food-category">
+                  <h4>Vegetarian Protein Sources</h4>
+                  <div class="food-item">
+                    <span>Paneer (100g)</span>
+                    <span>18g protein</span>
+                  </div>
+                  <div class="food-item">
+                    <span>Dal (1 cup cooked)</span>
+                    <span>12g protein</span>
+                  </div>
+                  <div class="food-item">
+                    <span>Greek yogurt (100g)</span>
+                    <span>10g protein</span>
+                  </div>
+                  <div class="food-item">
+                    <span>Soya chunks (100g)</span>
+                    <span>52g protein</span>
+                  </div>
+                  <div class="food-item">
+                    <span>Chana (1 cup cooked)</span>
+                    <span>15g protein</span>
+                  </div>
+                </div>
+                
+                <div class="food-category">
+                  <h4>Non-Vegetarian Protein Sources</h4>
+                  <div class="food-item">
+                    <span>Chicken breast (100g)</span>
+                    <span>31g protein</span>
+                  </div>
+                  <div class="food-item">
+                    <span>Egg (1 whole boiled)</span>
+                    <span>6g protein</span>
+                  </div>
+                  <div class="food-item">
+                    <span>Fish (100g)</span>
+                    <span>22g protein</span>
+                  </div>
+                  <div class="food-item">
+                    <span>Mutton (100g)</span>
+                    <span>25g protein</span>
+                  </div>
+                  <div class="food-item">
+                    <span>Egg whites (1 egg)</span>
+                    <span>4g protein</span>
+                  </div>
+                </div>
+                
+                <div class="food-category">
+                  <h4>Carb Sources</h4>
+                  <div class="food-item">
+                    <span>Brown rice (1 cup)</span>
+                    <span>45g carbs</span>
+                  </div>
+                  <div class="food-item">
+                    <span>Chapati (1 medium)</span>
+                    <span>15g carbs</span>
+                  </div>
+                  <div class="food-item">
+                    <span>Quinoa (1 cup)</span>
+                    <span>39g carbs</span>
+                  </div>
+                  <div class="food-item">
+                    <span>Oats (1 cup)</span>
+                    <span>27g carbs</span>
+                  </div>
+                  <div class="food-item">
+                    <span>Sweet potato (100g)</span>
+                    <span>20g carbs</span>
+                  </div>
+                </div>
+                
+                <div class="food-category">
+                  <h4>Healthy Fats</h4>
+                  <div class="food-item">
+                    <span>Ghee (1 tbsp)</span>
+                    <span>14g fat</span>
+                  </div>
+                  <div class="food-item">
+                    <span>Almonds (30g)</span>
+                    <span>14g fat</span>
+                  </div>
+                  <div class="food-item">
+                    <span>Peanut butter (1 tbsp)</span>
+                    <span>8g fat</span>
+                  </div>
+                  <div class="food-item">
+                    <span>Coconut (30g)</span>
+                    <span>10g fat</span>
+                  </div>
+                  <div class="food-item">
+                    <span>Flaxseeds (1 tbsp)</span>
+                    <span>4g fat</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="food-items" style="margin-top: 2rem;">
+                <div class="food-category">
+                  <h4>Vegetables (Weight Loss)</h4>
+                  <div class="food-item">
+                    <span>Spinach (1 cup)</span>
+                    <span>7 calories</span>
+                  </div>
+                  <div class="food-item">
+                    <span>Broccoli (1 cup)</span>
+                    <span>55 calories</span>
+                  </div>
+                  <div class="food-item">
+                    <span>Cucumber (100g)</span>
+                    <span>16 calories</span>
+                  </div>
+                  <div class="food-item">
+                    <span>Lettuce (1 cup)</span>
+                    <span>5 calories</span>
+                  </div>
+                  <div class="food-item">
+                    <span>Bell peppers (1 cup)</span>
+                    <span>30 calories</span>
+                  </div>
+                </div>
+                
+                <div class="food-category">
+                  <h4>Vegetables (Weight Maintenance)</h4>
+                  <div class="food-item">
+                    <span>Carrots (1 cup)</span>
+                    <span>52 calories</span>
+                  </div>
+                  <div class="food-item">
+                    <span>Beetroot (100g)</span>
+                    <span>43 calories</span>
+                  </div>
+                  <div class="food-item">
+                    <span>Cauliflower (1 cup)</span>
+                    <span>25 calories</span>
+                  </div>
+                  <div class="food-item">
+                    <span>Green beans (1 cup)</span>
+                    <span>44 calories</span>
+                  </div>
+                  <div class="food-item">
+                    <span>Brinjal (100g)</span>
+                    <span>25 calories</span>
+                  </div>
+                </div>
+                
+                <div class="food-category">
+                  <h4>Vegetables (Weight Gain)</h4>
+                  <div class="food-item">
+                    <span>Potato (100g)</span>
+                    <span>77 calories</span>
+                  </div>
+                  <div class="food-item">
+                    <span>Sweet potato (100g)</span>
+                    <span>86 calories</span>
+                  </div>
+                  <div class="food-item">
+                    <span>Corn (1 cup)</span>
+                    <span>143 calories</span>
+                  </div>
+                  <div class="food-item">
+                    <span>Peas (1 cup)</span>
+                    <span>118 calories</span>
+                  </div>
+                  <div class="food-item">
+                    <span>Plantain (100g)</span>
+                    <span>122 calories</span>
+                  </div>
+                </div>
+              </div>
+              
+              <button class="btn" onclick="goBackToCalculator()">Back to Calculator</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="container">
+          <div class="section-title">
+            <h2>About Us</h2>
+          </div>
+          
+          <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <p>THUG OF GAINS is dedicated to providing scientifically-backed nutrition guidance for fitness enthusiasts of all levels. Our goal is to help you achieve your fitness targets through personalized diet plans based on your unique body metrics and fitness goals.</p>
+            <p>Whether you're looking to lose weight, gain muscle, or maintain a balanced diet, our tools are designed to give you the nutritional support you need on your fitness journey.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Form (hidden by default, shown when clicking Contact Us link) -->
+      <div class="container">
+        <div class="contact-form" id="contact-form">
+          <div class="section-title">
+            <h2>Contact Us</h2>
+          </div>
+          <form id="contactForm" action="https://formspree.io/f/xwpovdvn" method="POST">
+            <div class="form-group">
+              <label for="name">Your Name:</label>
+              <input type="text" id="name" name="name" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email Address:</label>
+              <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="subject">Subject:</label>
+              <input type="text" id="subject" name="subject" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Your Message:</label>
+              <textarea id="message" name="message" class="form-control" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+
+      <footer>
+        <div class="container">
+          <div class="logo">THUG<span> OF GAINS</span></div>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#calculator">Calculator</a></li>
+            <li><a href="/workoutplans" target="_blank">Workout Plans</a></li>
+            <li><a href="/homeworkouts">Home Workouts</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="/Contact Us" target="_blank">Contact Us</a></li>
+          </ul>
+          <p class="copyright">© 2025 THUG OF GAINS. All rights reserved.</p>
+        </div>
+      </footer>
+
+      <!-- Chatbot Container -->
+      <div class="chatbot-container">
+        <div class="chatbot-toggle" id="chatbot-toggle">
+          <i class="fas fa-robot"></i>
+        </div>
+        <div class="chatbot-window" id="chatbot-window">
+          <div class="chatbot-header">
+            <h3>THUG OF GAINS Assistant</h3>
+            <button class="chatbot-close" id="chatbot-close">&times;</button>
+          </div>
+          <div class="chatbot-messages" id="chatbot-messages">
+            <!-- Messages will appear here -->
+          </div>
+          <div class="chatbot-input">
+            <input type="text" id="chatbot-input" placeholder="Type your message...">
+            <button id="chatbot-send"><i class="fas fa-paper-plane"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+        // Show main content after logo animation completes (4 seconds)
+        setTimeout(() => {
+            document.getElementById('logo-intro').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('logo-intro').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+                // Add show class to trigger opacity transition
+                setTimeout(() => {
+                    document.getElementById('main-content').classList.add('show');
+                }, 10);
+            }, 500); // Match this with your CSS transition time
+        }, 4000); // Total animation time (4 seconds)
+
+        // Global variables to store user data
+        let userData = {
+          bmr: 0,
+          maintenanceCalories: 0,
+          goal: '',
+          dietType: '',
+          dailyCalories: 0,
+          protein: 0,
+          carbs: 0,
+          fats: 0
+        };
+
+        // Fitness quotes database (one for each day of the week)
+        const fitnessQuotes = [
+          {
+            quote: "The only bad workout is the one that didn't happen.",
+            author: "Unknown",
+            day: 0 // Sunday
+          },
+          {
+            quote: "Strength does not come from physical capacity. It comes from an indomitable will.",
+            author: "Mahatma Gandhi",
+            day: 1 // Monday
+          },
+          {
+            quote: "Success starts with self-discipline. It starts with you.",
+            author: "Dwayne 'The Rock' Johnson",
+            day: 2 // Tuesday
+          },
+          {
+            quote: "The body achieves what the mind believes.",
+            author: "Napoleon Hill",
+            day: 3 // Wednesday
+          },
+          {
+            quote: "Discipline is the bridge between goals and accomplishment.",
+            author: "Jim Rohn",
+            day: 4 // Thursday
+          },
+          {
+            quote: "You don't have to be extreme, just consistent.",
+            author: "Unknown",
+            day: 5 // Friday
+          },
+          {
+            quote: "The secret of getting ahead is getting started.",
+            author: "Mark Twain",
+            day: 6 // Saturday
+          }
+        ];
+
+        // Indian Food database for both vegetarian and non-vegetarian
+        const foodDatabase = {
+          vegetarian: {
+            protein: [
+              { name: "Paneer (100g)", protein: 18, carbs: 3, fat: 8, calories: 210 },
+              { name: "Dal (1 cup cooked)", protein: 12, carbs: 40, fat: 1, calories: 230 },
+              { name: "Greek yogurt (100g)", protein: 10, carbs: 4, fat: 0.4, calories: 59 },
+              { name: "Soya chunks (100g)", protein: 52, carbs: 33, fat: 0.5, calories: 345 },
+              { name: "Chana (1 cup cooked)", protein: 15, carbs: 45, fat: 4, calories: 270 }
+            ],
+            carbs: [
+              { name: "Brown rice (1 cup)", protein: 5, carbs: 45, fat: 2, calories: 215 },
+              { name: "Chapati (1 medium)", protein: 3, carbs: 15, fat: 1, calories: 70 },
+              { name: "Quinoa (1 cup)", protein: 8, carbs: 39, fat: 4, calories: 220 },
+              { name: "Oats (1 cup)", protein: 5, carbs: 27, fat: 3, calories: 150 }
+            ],
+            fats: [
+              { name: "Ghee (1 tbsp)", protein: 0, carbs: 0, fat: 14, calories: 120 },
+              { name: "Almonds (30g)", protein: 6, carbs: 6, fat: 14, calories: 160 },
+              { name: "Peanut butter (1 tbsp)", protein: 4, carbs: 3, fat: 8, calories: 90 }
+            ],
+            vegetables: [
+              { name: "Spinach (1 cup)", protein: 1, carbs: 1, fat: 0, calories: 7 },
+              { name: "Broccoli (1 cup)", protein: 3, carbs: 6, fat: 0, calories: 55 }
+            ]
+          },
+          nonVegetarian: {
+            protein: [
+              { name: "Chicken breast (100g)", protein: 31, carbs: 0, fat: 3.6, calories: 165 },
+              { name: "Egg (1 whole boiled)", protein: 6, carbs: 0.6, fat: 5, calories: 78 },
+              { name: "Fish (100g)", protein: 22, carbs: 0, fat: 10, calories: 206 },
+              { name: "Mutton (100g)", protein: 25, carbs: 0, fat: 15, calories: 250 }
+            ],
+            carbs: [
+              { name: "Brown rice (1 cup)", protein: 5, carbs: 45, fat: 2, calories: 215 },
+              { name: "Chapati (1 medium)", protein: 3, carbs: 15, fat: 1, calories: 70 },
+              { name: "Quinoa (1 cup)", protein: 8, carbs: 39, fat: 4, calories: 220 },
+              { name: "Oats (1 cup)", protein: 5, carbs: 27, fat: 3, calories: 150 }
+            ],
+            fats: [
+              { name: "Ghee (1 tbsp)", protein: 0, carbs: 0, fat: 14, calories: 120 },
+              { name: "Almonds (30g)", protein: 6, carbs: 6, fat: 14, calories: 160 },
+              { name: "Peanut butter (1 tbsp)", protein: 4, carbs: 3, fat: 8, calories: 90 }
+            ],
+            vegetables: [
+              { name: "Spinach (1 cup)", protein: 1, carbs: 1, fat: 0, calories: 7 },
+              { name: "Broccoli (1 cup)", protein: 3, carbs: 6, fat: 0, calories: 55 }
+            ]
+          }
+        };
+
+        // Display daily quote based on day of the week
+        function displayDailyQuote() {
+          const today = new Date();
+          const dayOfWeek = today.getDay(); // 0 (Sunday) to 6 (Saturday)
+          
+          // Find quote for today
+          const todaysQuote = fitnessQuotes.find(q => q.day === dayOfWeek) || fitnessQuotes[0];
+          
+          // Format date
+          const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+          const formattedDate = today.toLocaleDateString('en-US', options);
+          
+          // Display quote
+          document.getElementById('daily-quote').innerHTML = `
+            <blockquote>${todaysQuote.quote}</blockquote>
+            <div class="quote-author">— ${todaysQuote.author}</div>
+            <div class="quote-date">${formattedDate}</div>
+          `;
+        }
+
+        // Contact form toggle functionality
+        function setupContactForm() {
+          const contactLink = document.getElementById('contact-link');
+          const footerContactLink = document.getElementById('footer-contact-link');
+          const contactForm = document.getElementById('contact-form');
+          
+          function toggleContactForm(e) {
+            e.preventDefault();
+            contactForm.style.display = contactForm.style.display === 'block' ? 'none' : 'block';
+            if (contactForm.style.display === 'block') {
+              contactForm.scrollIntoView({ behavior: 'smooth' });
+            }
+          }
+          
+          contactLink.addEventListener('click', toggleContactForm);
+          footerContactLink.addEventListener('click', toggleContactForm);
+        }
+
+        // Call the function when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+          displayDailyQuote();
+          setupContactForm();
+        });
+
+        // Tab functionality
+        document.querySelectorAll('.tab').forEach(tab => {
+          tab.addEventListener('click', () => {
+            // Remove active class from all tabs and contents
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            
+            // Add active class to clicked tab and corresponding content
+            tab.classList.add('active');
+            const tabId = tab.getAttribute('data-tab');
+            document.getElementById(`${tabId}-tab`).classList.add('active');
+          });
+        });
+
+        // Calculate BMR and maintenance calories
+        function calculateBMR() {
+          const age = parseInt(document.getElementById('age').value);
+          const height = parseInt(document.getElementById('height').value);
+          const weight = parseInt(document.getElementById('weight').value);
+          const activity = parseFloat(document.getElementById('activity').value);
+          const gender = document.querySelector('input[name="gender"]:checked').value;
+          
+          if (!age || !height || !weight) {
+            alert('Please fill in all fields');
+            return;
+          }
+          
+          // Calculate BMR using Mifflin-St Jeor Equation
+          let bmr;
+          if (gender === 'male') {
+            bmr = (10 * weight) + (6.25 * height) - (5 * age) + 5;
+          } else {
+            bmr = (10 * weight) + (6.25 * height) - (5 * age) - 161;
+          }
+          
+          // Calculate maintenance calories
+          const maintenanceCalories = Math.round(bmr * activity);
+          
+          // Calculate BMI
+          const heightInMeters = height / 100;
+          const bmi = (weight / (heightInMeters * heightInMeters)).toFixed(1);
+          
+          // Determine BMI category
+          let bmiCategory;
+          if (bmi < 18.5) {
+            bmiCategory = 'Underweight';
+          } else if (bmi >= 18.5 && bmi < 25) {
+            bmiCategory = 'Normal weight';
+          } else if (bmi >= 25 && bmi < 30) {
+            bmiCategory = 'Overweight';
+          } else {
+            bmiCategory = 'Obese';
+          }
+          
+          // Store user data
+          userData.bmr = Math.round(bmr);
+          userData.maintenanceCalories = maintenanceCalories;
+          
+          // Display results
+          document.getElementById('bmr-result').textContent = `${Math.round(bmr)} calories/day`;
+          document.getElementById('maintenance-result').textContent = `${maintenanceCalories} calories/day`;
+          document.getElementById('bmi-result').textContent = bmi;
+          document.getElementById('bmi-category').textContent = bmiCategory;
+          
+          // Show results section
+          document.getElementById('results').style.display = 'block';
+          
+          // Scroll to results
+          document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Select fitness goal
+        function selectPlan(goal) {
+          userData.goal = goal;
+          
+          // Show diet type selection
+          document.getElementById('diet-type-selection').style.display = 'block';
+          
+          // Scroll to diet type selection
+          document.getElementById('diet-type-selection').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Select diet type
+        function selectDietType(dietType) {
+          userData.dietType = dietType;
+          
+          // Calculate daily calories based on goal
+          let dailyCalories;
+          if (userData.goal === 'weight-loss') {
+            dailyCalories = userData.maintenanceCalories - 500;
+          } else if (userData.goal === 'weight-gain') {
+            dailyCalories = userData.maintenanceCalories + 500;
+          } else {
+            dailyCalories = userData.maintenanceCalories;
+          }
+          
+          // Calculate macros (40% protein, 40% carbs, 20% fats)
+          const proteinGrams = Math.round((dailyCalories * 0.4) / 4);
+          const carbGrams = Math.round((dailyCalories * 0.4) / 4);
+          const fatGrams = Math.round((dailyCalories * 0.2) / 9);
+          
+          // Store in user data
+          userData.dailyCalories = dailyCalories;
+          userData.protein = proteinGrams;
+          userData.carbs = carbGrams;
+          userData.fats = fatGrams;
+          
+          // Generate meal plan
+          generateMealPlan();
+          
+          // Switch to diet plan tab
+          document.querySelector('.tab[data-tab="diet-plan"]').click();
+        }
+
+        // Generate meal plan based on user data
+        function generateMealPlan() {
+          const mealPlanContainer = document.getElementById('meal-plan');
+          mealPlanContainer.innerHTML = '';
+          
+          // Set plan description based on goal
+          let planDescription = '';
+          if (userData.goal === 'weight-loss') {
+            planDescription = 'This is a weight loss plan with a 500 calorie deficit from your maintenance calories. Focus on high protein intake to preserve muscle mass while losing fat.';
+          } else if (userData.goal === 'weight-gain') {
+            planDescription = 'This is a weight gain plan with a 500 calorie surplus from your maintenance calories. Make sure to progressively increase weights in your workouts to build muscle.';
+          } else {
+            planDescription = 'This is a maintenance plan to help you maintain your current weight while optimizing body composition.';
+          }
+          
+          document.getElementById('plan-description').textContent = planDescription;
+          
+          // Display daily targets
+          document.getElementById('daily-calories').innerHTML = `
+            <p><strong>Calories:</strong> ${userData.dailyCalories} kcal/day</p>
+          `;
+          
+          document.getElementById('daily-macros').innerHTML = `
+            <p><strong>Protein:</strong> ${userData.protein}g (${Math.round(userData.protein * 4 / userData.dailyCalories * 100)}%)</p>
+            <p><strong>Carbohydrates:</strong> ${userData.carbs}g (${Math.round(userData.carbs * 4 / userData.dailyCalories * 100)}%)</p>
+            <p><strong>Fats:</strong> ${userData.fats}g (${Math.round(userData.fats * 9 / userData.dailyCalories * 100)}%)</p>
+          `;
+          
+          // Create meals for the day
+          const meals = [
+            { name: 'Breakfast', calories: Math.round(userData.dailyCalories * 0.25) },
+            { name: 'Mid-Morning Snack', calories: Math.round(userData.dailyCalories * 0.15) },
+            { name: 'Lunch', calories: Math.round(userData.dailyCalories * 0.3) },
+            { name: 'Afternoon Snack', calories: Math.round(userData.dailyCalories * 0.1) },
+            { name: 'Dinner', calories: Math.round(userData.dailyCalories * 0.2) }
+          ];
+          
+          // Generate each meal
+          meals.forEach(meal => {
+            const mealDiv = document.createElement('div');
+            mealDiv.className = 'meal';
+            
+            const mealProtein = Math.round(userData.protein * (meal.calories / userData.dailyCalories));
+            const mealCarbs = Math.round(userData.carbs * (meal.calories / userData.dailyCalories));
+            const mealFats = Math.round(userData.fats * (meal.calories / userData.dailyCalories));
+            
+            // Get food suggestions based on diet type
+            const proteinFoods = foodDatabase[userData.dietType].protein;
+            const carbFoods = foodDatabase[userData.dietType].carbs;
+            const fatFoods = foodDatabase[userData.dietType].fats;
+            const vegetables = foodDatabase[userData.dietType].vegetables;
+            
+            // Randomly select foods for each macronutrient
+            const proteinFood = proteinFoods[Math.floor(Math.random() * proteinFoods.length)];
+            const carbFood = carbFoods[Math.floor(Math.random() * carbFoods.length)];
+            const fatFood = fatFoods[Math.floor(Math.random() * fatFoods.length)];
+            const vegetable = vegetables[Math.floor(Math.random() * vegetables.length)];
+            
+            mealDiv.innerHTML = `
+              <h4>${meal.name} (${meal.calories} kcal)</h4>
+              <p>${proteinFood.name}, ${carbFood.name}, ${fatFood.name}, ${vegetable.name}</p>
+              <div class="meal-macros">
+                <div class="macro">
+                  <div class="macro-icon protein-icon"></div>
+                  <span>Protein: ${mealProtein}g</span>
+                </div>
+                <div class="macro">
+                  <div class="macro-icon carb-icon"></div>
+                  <span>Carbs: ${mealCarbs}g</span>
+                </div>
+                <div class="macro">
+                  <div class="macro-icon fat-icon"></div>
+                  <span>Fats: ${mealFats}g</span>
+                </div>
+              </div>
+            `;
+            
+            mealPlanContainer.appendChild(mealDiv);
+          });
+        }
+
+        // Go back to calculator
+        function goBackToCalculator() {
+          document.querySelector('.tab[data-tab="calculator"]').click();
+        }
+
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+          e.preventDefault();
+          
+          const form = e.target;
+          const formData = new FormData(form);
+          const submitButton = form.querySelector('button[type="submit"]');
+          
+          // Change button text to show loading state
+          const originalButtonText = submitButton.textContent;
+          submitButton.textContent = 'Sending...';
+          submitButton.disabled = true;
+          
+          try {
+            const response = await fetch(form.action, {
+              method: 'POST',
+              body: formData,
+              headers: {
+                'Accept': 'application/json'
+              }
+            });
+            
+            if (response.ok) {
+              alert('Thank you for your message! We will get back to you soon.');
+              form.reset();
+              document.getElementById('contact-form').style.display = 'none';
+            } else {
+              throw new Error('Form submission failed');
+            }
+          } catch (error) {
+            alert('There was a problem sending your message. Please try again later.');
+            console.error('Error:', error);
+          } finally {
+            // Reset button state
+            submitButton.textContent = originalButtonText;
+            submitButton.disabled = false;
+          }
+        });
+
+        // Chatbot functionality
+        document.addEventListener('DOMContentLoaded', function() {
+          const chatbotToggle = document.getElementById('chatbot-toggle');
+          const chatbotWindow = document.getElementById('chatbot-window');
+          const chatbotClose = document.getElementById('chatbot-close');
+          const chatbotMessages = document.getElementById('chatbot-messages');
+          const chatbotInput = document.getElementById('chatbot-input');
+          const chatbotSend = document.getElementById('chatbot-send');
+          
+          // Toggle chatbot window
+          chatbotToggle.addEventListener('click', function() {
+            chatbotWindow.classList.toggle('active');
+          });
+          
+          // Close chatbot window
+          chatbotClose.addEventListener('click', function() {
+            chatbotWindow.classList.remove('active');
+          });
+          
+          // Send message
+          function sendMessage() {
+            const message = chatbotInput.value.trim();
+            if (message === '') return;
+            
+            // Add user message
+            addMessage(message, 'user-message');
+            chatbotInput.value = '';
+            
+            // Bot response
+            setTimeout(() => {
+              const response = getBotResponse(message);
+              addMessage(response, 'bot-message');
+            }, 500);
+          }
+          
+          // Send message on button click
+          chatbotSend.addEventListener('click', sendMessage);
+          
+          // Send message on Enter key
+          chatbotInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+              sendMessage();
+            }
+          });
+          
+          // Add message to chat
+          function addMessage(text, className) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${className}`;
+            messageDiv.textContent = text;
+            chatbotMessages.appendChild(messageDiv);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+          }
+          
+          // Get bot response
+          function getBotResponse(message) {
+            const lowerMessage = message.toLowerCase();
+            
+            // Greetings
+            if (lowerMessage.includes('hi') || lowerMessage.includes('hello') || lowerMessage.includes('hey')) {
+              return "Hello! I'm your THUG OF GAINS assistant. How can I help you today?";
+            }
+            
+            // About the website
+            if (lowerMessage.includes('what') && lowerMessage.includes('this') || lowerMessage.includes('about')) {
+              return "THUG OF GAINS is a fitness platform that helps you calculate your nutritional needs and provides workout plans. You can calculate your BMR, get a personalized diet plan, and access workout routines for different levels.";
+            }
+            
+            // BMR
+            if (lowerMessage.includes('bmr') || lowerMessage.includes('basal metabolic rate')) {
+              return "BMR (Basal Metabolic Rate) is the number of calories your body needs at complete rest. You can calculate it using our calculator by entering your age, gender, height, and weight.";
+            }
+            
+            // Calculator
+            if (lowerMessage.includes('calculator') || lowerMessage.includes('calculate')) {
+              return "Our calculator helps you determine your BMR, maintenance calories, and BMI. Just go to the calculator section and enter your details. Then you can choose a fitness goal (weight loss, maintenance, or gain) and diet preference.";
+            }
+            
+            // Workouts
+            if (lowerMessage.includes('workout') || lowerMessage.includes('exercise')) {
+              return "We offer workout plans for different levels. Check the Workout Plans section to see the routines.";
+            }
+            
+            // Diet
+            if (lowerMessage.includes('diet') || lowerMessage.includes('food') || lowerMessage.includes('eat')) {
+              return "After calculating your BMR, you can get a personalized diet plan based on your goals (weight loss, maintenance, or gain) and diet preference (vegetarian or non-vegetarian). The plan will show your daily calorie and macronutrient targets with meal suggestions.";
+            }
+            
+            // Contact
+            if (lowerMessage.includes('contact') || lowerMessage.includes('reach')) {
+              return "You can contact us through the Contact section at the bottom of the page. Fill out the form with your name, email, and message, and we'll get back to you as soon as possible.";
+            }
+            
+            // Default response
+            return "I'm not sure I understand. You can ask me about:\n- Calculating your BMR\n- Workout plans\n- Diet plans\nOr visit the different sections of our website for more information.";
+          }
+          
+          // Initial bot message
+          setTimeout(() => {
+            addMessage("Hello! I'm your THUG OF GAINS assistant. How can I help you today?", 'bot-message');
+          }, 1000);
+        });
+    </script>
+</body>
+</html>

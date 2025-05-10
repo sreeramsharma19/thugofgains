@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6 Days Workout Plans</title>
+  <style>
+    :root {
+      --primary: #4CAF50;
+      --primary-dark: #388E3C;
+      --secondary: #FFC107;
+      --dark: #212121;
+      --light: #F5F5F5;
+      --danger: #F44336;
+      --success: #8BC34A;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      color: var(--dark);
+      background-color: var(--light);
+    }
+    header {
+      background: linear-gradient(to right, var(--primary), var(--primary-dark));
+      color: white;
+      text-align: center;
+      padding: 2rem 0;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .section-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .section-button {
+      padding: 0.75rem 1.5rem;
+      background-color: var(--secondary);
+      color: var(--dark);
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .section-button:hover {
+      background-color: #FFD54F;
+      transform: translateY(-2px);
+    }
+    .section-button.active {
+      background-color: var(--secondary);
+      box-shadow: 0 0 0 2px var(--primary-dark);
+    }
+    .workout-section {
+      display: none;
+      background-color: white;
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+    }
+    .workout-section.active {
+      display: block;
+    }
+    .workout-day {
+      margin-bottom: 1.5rem;
+      border-left: 4px solid var(--primary);
+      padding-left: 1rem;
+      transition: all 0.5s ease;
+    }
+    h2 {
+      color: var(--primary-dark);
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    h3 {
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    .exercise {
+      margin-bottom: 0.5rem;
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: all 0.5s ease;
+    }
+    .exercise.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .exercise-name {
+      font-weight: bold;
+    }
+    .exercise-sets {
+      color: var(--primary-dark);
+    }
+    .note {
+      font-style: italic;
+      color: #777;
+      margin-top: 1rem;
+    }
+    footer {
+      background-color: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+    
+    /* Abbreviation styles */
+    .abbreviated {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .abbreviation {
+      background-color: var(--light);
+      padding: 8px 12px;
+      border-radius: 4px;
+      font-weight: bold;
+      transition: all 0.5s ease;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>6 Days Workout Plans</h1>
+    <p>Choose your fitness level and start your transformation</p>
+  </header>
+  
+  <div class="container">
+    <div class="section-nav">
+      <button class="section-button active" onclick="showSection('beginner')">Beginner</button>
+      <button class="section-button" onclick="showSection('intermediate')">Intermediate</button>
+      <button class="section-button" onclick="showSection('advanced')">Advanced</button>
+    </div>
+    
+    <!-- Beginner Section -->
+    <div id="beginner" class="workout-section active">
+      <h2>Beginner Level: 6-Day Plan</h2>
+      <p>For those who are new to fitness or returning after a long break. Focus on learning proper form and building baseline strength.</p>
+      
+      <div class="abbreviated" id="beginner-abbreviated">
+        <div class="abbreviation">Day 1: Bt, Pt, Dt, Pf</div>
+        <div class="abbreviation">Day 2: W, Bi, M, Bi</div>
+        <div class="abbreviation">Day 3: Di, Di, Tr, Lt</div>
+        <div class="abbreviation">Day 4: Lt, Gi, Cr, Bs</div>
+        <div class="abbreviation">Day 5: Rw, Rt, Lr, Pf</div>
+        <div class="abbreviation">Day 6: Bs, Pu, Sh, Jj</div>
+      </div>
+      
+      <div id="beginner-full" style="display:none;">
+        <div class="workout-day">
+          <h3>Day 1: Full Body</h3>
+          <div class="exercise"><span class="exercise-name">Bodyweight Squats:</span> <span class="exercise-sets">3 sets of 12 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Push-ups (or Knee Push-ups):</span> <span class="exercise-sets">3 sets of 8-10 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Dumbbell Rows:</span> <span class="exercise-sets">3 sets of 10 reps each arm</span></div>
+          <div class="exercise"><span class="exercise-name">Plank:</span> <span class="exercise-sets">3 sets of 20-30 seconds</span></div>
+        </div>
+        
+        <div class="workout-day">
+          <h3>Day 2: Light Cardio & Core</h3>
+          <div class="exercise"><span class="exercise-name">Walking/Light Jogging:</span> <span class="exercise-sets">20 minutes</span></div>
+          <div class="exercise"><span class="exercise-name">Bicycle Crunches:</span> <span class="exercise-sets">3 sets of 10 reps each side</span></div>
+          <div class="exercise"><span class="exercise-name">Mountain Climbers:</span> <span class="exercise-sets">3 sets of 30 seconds</span></div>
+          <div class="exercise"><span class="exercise-name">Bird Dogs:</span> <span class="exercise-sets">3 sets of 8 reps each side</span></div>
+        </div>
+        
+        <div class="workout-day">
+          <h3>Day 3: Upper Body Focus</h3>
+          <div class="exercise"><span class="exercise-name">Dumbbell Shoulder Press:</span> <span class="exercise-sets">3 sets of 10 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Dumbbell Chest Press:</span> <span class="exercise-sets">3 sets of 10 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Tricep Dips (using chair):</span> <span class="exercise-sets">3 sets of 8 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Lateral Raises:</span> <span class="exercise-sets">3 sets of 10 reps</span></div>
+        </div>
+        
+        <div class="workout-day">
+          <h3>Day 4: Lower Body Focus</h3>
+          <div class="exercise"><span class="exercise-name">Lunges:</span> <span class="exercise-sets">3 sets of 10 reps each leg</span></div>
+          <div class="exercise"><span class="exercise-name">Glute Bridges:</span> <span class="exercise-sets">3 sets of 12 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Calf Raises:</span> <span class="exercise-sets">3 sets of 15 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Bodyweight Squats:</span> <span class="exercise-sets">3 sets of 12 reps</span></div>
+        </div>
+        
+        <div class="workout-day">
+          <h3>Day 5: Cardio & Core</h3>
+          <div class="exercise"><span class="exercise-name">Brisk Walking/Jogging:</span> <span class="exercise-sets">25 minutes</span></div>
+          <div class="exercise"><span class="exercise-name">Russian Twists:</span> <span class="exercise-sets">3 sets of 10 reps each side</span></div>
+          <div class="exercise"><span class="exercise-name">Leg Raises:</span> <span class="exercise-sets">3 sets of 10 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Plank:</span> <span class="exercise-sets">3 sets of 30 seconds</span></div>
+        </div>
+        
+        <div class="workout-day">
+          <h3>Day 6: Full Body</h3>
+          <div class="exercise"><span class="exercise-name">Bodyweight Squats:</span> <span class="exercise-sets">3 sets of 15 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Push-ups:</span> <span class="exercise-sets">3 sets of 10 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Superman Hold:</span> <span class="exercise-sets">3 sets of 20 seconds</span></div>
+          <div class="exercise"><span class="exercise-name">Jumping Jacks:</span> <span class="exercise-sets">3 sets of 30 seconds</span></div>
+        </div>
+      </div>
+      
+      <div class="note">
+        <p>Rest on Day 7. Start with light weights and focus on form. Increase weight or reps gradually as you get stronger.</p>
+      </div>
+    </div>
+    
+    <!-- Intermediate Section -->
+    <div id="intermediate" class="workout-section">
+      <h2>Intermediate Level: 6-Day Split</h2>
+      <p>For those with 6+ months of consistent training. This plan increases intensity and introduces more targeted muscle group training.</p>
+      
+      <div class="abbreviated" id="intermediate-abbreviated">
+        <div class="abbreviation">Day 1: BP, IP, CF, TP, OE</div>
+        <div class="abbreviation">Day 2: PU, BR, SR, BC, HC</div>
+        <div class="abbreviation">Day 3: BS, RD, LP, LC, HL, CC</div>
+        <div class="abbreviation">Day 4: OP, LR, FP, UR, SH, PL, RT</div>
+        <div class="abbreviation">Day 5: HIIT Cardio</div>
+        <div class="abbreviation">Day 6: DL, PU, PU, WP</div>
+      </div>
+      
+      <div id="intermediate-full" style="display:none;">
+        <div class="workout-day">
+          <h3>Day 1: Chest & Triceps</h3>
+          <div class="exercise"><span class="exercise-name">Barbell Bench Press:</span> <span class="exercise-sets">4 sets of 8-10 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Incline Dumbbell Press:</span> <span class="exercise-sets">3 sets of 10 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Chest Flyes:</span> <span class="exercise-sets">3 sets of 12 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Tricep Pushdowns:</span> <span class="exercise-sets">3 sets of 12 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Overhead Tricep Extensions:</span> <span class="exercise-sets">3 sets of 12 reps</span></div>
+        </div>
+        
+        <div class="workout-day">
+          <h3>Day 2: Back & Biceps</h3>
+          <div class="exercise"><span class="exercise-name">Pull-ups or Lat Pulldowns:</span> <span class="exercise-sets">4 sets of 8-10 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Bent Over Rows:</span> <span class="exercise-sets">3 sets of 10 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Seated Cable Rows:</span> <span class="exercise-sets">3 sets of 12 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Barbell Bicep Curls:</span> <span class="exercise-sets">3 sets of 10 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Hammer Curls:</span> <span class="exercise-sets">3 sets of 12 reps</span></div>
+        </div>
+        
+        <div class="workout-day">
+          <h3>Day 3: Legs & Core</h3>
+          <div class="exercise"><span class="exercise-name">Barbell Squats:</span> <span class="exercise-sets">4 sets of 10 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Romanian Deadlifts:</span> <span class="exercise-sets">3 sets of 10 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Leg Press:</span> <span class="exercise-sets">3 sets of 12 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Leg Curls:</span> <span class="exercise-sets">3 sets of 12 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Hanging Leg Raises:</span> <span class="exercise-sets">3 sets of 12 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Cable Crunches:</span> <span class="exercise-sets">3 sets of 15 reps</span></div>
+        </div>
+        
+        <div class="workout-day">
+          <h3>Day 4: Shoulders & Abs</h3>
+          <div class="exercise"><span class="exercise-name">Overhead Press:</span> <span class="exercise-sets">4 sets of 8-10 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Lateral Raises:</span> <span class="exercise-sets">3 sets of 12 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Face Pulls:</span> <span class="exercise-sets">3 sets of 15 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Upright Rows:</span> <span class="exercise-sets">3 sets of 10 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Shrugs:</span> <span class="exercise-sets">3 sets of 12 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Plank:</span> <span class="exercise-sets">3 sets of 45-60 seconds</span></div>
+          <div class="exercise"><span class="exercise-name">Russian Twists:</span> <span class="exercise-sets">3 sets of 15 reps each side</span></div>
+        </div>
+        
+        <div class="workout-day">
+          <h3>Day 5: HIIT Cardio</h3>
+          <div class="exercise"><span class="exercise-name">Warm-up:</span> <span class="exercise-sets">5 minutes light cardio</span></div>
+          <div class="exercise"><span class="exercise-name">Interval Training:</span> <span class="exercise-sets">20 minutes (30 seconds high intensity, 30 seconds rest)</span></div>
+          <div class="exercise"><span class="exercise-name">Exercises include:</span> Burpees, Mountain Climbers, Jump Squats, High Knees</div>
+          <div class="exercise"><span class="exercise-name">Cool down:</span> <span class="exercise-sets">5 minutes easy cardio + stretching</span></div>
+        </div>
+        
+        <div class="workout-day">
+          <h3>Day 6: Full Body & Weak Points</h3>
+          <div class="exercise"><span class="exercise-name">Deadlifts:</span> <span class="exercise-sets">4 sets of 8 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Push-ups:</span> <span class="exercise-sets">3 sets of 15-20 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Pull-ups:</span> <span class="exercise-sets">3 sets of 8-10 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Focus on weak points:</span> 2-3 targeted exercises</div>
+        </div>
+      </div>
+      
+      <div class="note">
+        <p>Rest on Day 7. Perform 5-10 minutes of warm-up before each workout. Adjust weights to reach near failure on the last 1-2 reps of each set.</p>
+      </div>
+    </div>
+    
+    <!-- Advanced Section -->
+    <div id="advanced" class="workout-section">
+      <h2>Advanced Level: 6-Day Split</h2>
+      <p>For experienced lifters with 2+ years of training. This high-volume program focuses on hypertrophy with strength elements.</p>
+      
+      <div class="abbreviated" id="advanced-abbreviated">
+        <div class="abbreviation">Day 1: BP, IP, WD, CF, CG, TP, OE</div>
+        <div class="abbreviation">Day 2: DL, WPU, BR, TR, BC, IC, CC</div>
+        <div class="abbreviation">Day 3: BS, FS, RD, LP, WL, SCR, WHL, AWR</div>
+        <div class="abbreviation">Day 4: MP, PP, LR, FP, UR, SH, CC, DBS</div>
+        <div class="abbreviation">Day 5: IDP, CR, DP, PU, LR, FP, TP, EZC</div>
+        <div class="abbreviation">Day 6: HS, BSS, LE, LC, SCR, COND</div>
+      </div>
+      
+      <div id="advanced-full" style="display:none;">
+        <div class="workout-day">
+          <h3>Day 1: Chest & Triceps (Heavy)</h3>
+          <div class="exercise"><span class="exercise-name">Bench Press:</span> <span class="exercise-sets">5 sets of 5 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Incline Bench Press:</span> <span class="exercise-sets">4 sets of 8 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Weighted Dips:</span> <span class="exercise-sets">3 sets of 8-10 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Cable Flyes:</span> <span class="exercise-sets">3 sets of 12 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Close-Grip Bench:</span> <span class="exercise-sets">4 sets of 8 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Tricep Pushdowns:</span> <span class="exercise-sets">3 sets of 12 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Overhead Extensions:</span> <span class="exercise-sets">3 sets of 12 reps</span></div>
+        </div>
+        
+        <div class="workout-day">
+          <h3>Day 2: Back & Biceps (Heavy)</h3>
+          <div class="exercise"><span class="exercise-name">Deadlifts:</span> <span class="exercise-sets">5 sets of 5 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Weighted Pull-ups:</span> <span class="exercise-sets">4 sets of 6-8 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Bent-Over Rows:</span> <span class="exercise-sets">4 sets of 8 reps</span></div>
+          <div class="exercise"><span class="exercise-name">T-Bar Rows:</span> <span class="exercise-sets">3 sets of 10 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Barbell Curls:</span> <span class="exercise-sets">4 sets of 8 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Incline Dumbbell Curls:</span> <span class="exercise-sets">3 sets of 10 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Concentration Curls:</span> <span class="exercise-sets">3 sets of 12 reps</span></div>
+        </div>
+        
+        <div class="workout-day">
+          <h3>Day 3: Legs (Heavy) & Core</h3>
+          <div class="exercise"><span class="exercise-name">Back Squats:</span> <span class="exercise-sets">5 sets of 5 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Front Squats:</span> <span class="exercise-sets">4 sets of 8 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Romanian Deadlifts:</span> <span class="exercise-sets">4 sets of 8 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Leg Press:</span> <span class="exercise-sets">3 sets of 10 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Walking Lunges:</span> <span class="exercise-sets">3 sets of 12 steps each leg</span></div>
+          <div class="exercise"><span class="exercise-name">Standing Calf Raises:</span> <span class="exercise-sets">4 sets of 15 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Weighted Hanging Leg Raises:</span> <span class="exercise-sets">4 sets of 12 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Ab Wheel Rollouts:</span> <span class="exercise-sets">3 sets of 12 reps</span></div>
+        </div>
+        
+        <div class="workout-day">
+          <h3>Day 4: Shoulders & Abs (Heavy)</h3>
+          <div class="exercise"><span class="exercise-name">Military Press:</span> <span class="exercise-sets">5 sets of 5 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Push Press:</span> <span class="exercise-sets">4 sets of 6 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Lateral Raises:</span> <span class="exercise-sets">4 sets of 12 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Face Pulls:</span> <span class="exercise-sets">3 sets of 15 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Upright Rows:</span> <span class="exercise-sets">3 sets of 10 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Shrugs:</span> <span class="exercise-sets">4 sets of 12 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Cable Crunches:</span> <span class="exercise-sets">4 sets of 15 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Decline Bench Sit-ups:</span> <span class="exercise-sets">3 sets of 15 reps</span></div>
+        </div>
+        
+        <div class="workout-day">
+          <h3>Day 5: Upper Body Volume</h3>
+          <div class="exercise"><span class="exercise-name">Incline Dumbbell Press:</span> <span class="exercise-sets">4 sets of 10 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Cable Rows:</span> <span class="exercise-sets">4 sets of 10 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Dips:</span> <span class="exercise-sets">3 sets of 12 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Pull-ups:</span> <span class="exercise-sets">3 sets of 12 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Lateral Raises:</span> <span class="exercise-sets">3 sets of 15 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Face Pulls:</span> <span class="exercise-sets">3 sets of 15 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Tricep Pushdowns:</span> <span class="exercise-sets">3 sets of 15 reps</span></div>
+          <div class="exercise"><span class="exercise-name">EZ Bar Curls:</span> <span class="exercise-sets">3 sets of 15 reps</span></div>
+        </div>
+        
+        <div class="workout-day">
+          <h3>Day 6: Lower Body Volume & Conditioning</h3>
+          <div class="exercise"><span class="exercise-name">Hack Squats:</span> <span class="exercise-sets">4 sets of 12 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Bulgarian Split Squats:</span> <span class="exercise-sets">3 sets of 10 reps each leg</span></div>
+          <div class="exercise"><span class="exercise-name">Leg Extensions:</span> <span class="exercise-sets">3 sets of 15 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Leg Curls:</span> <span class="exercise-sets">3 sets of 15 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Seated Calf Raises:</span> <span class="exercise-sets">4 sets of 20 reps</span></div>
+          <div class="exercise"><span class="exercise-name">Conditioning Circuit:</span> <span class="exercise-sets">3 rounds of 45 seconds work/15 seconds rest</span></div>
+          <div class="exercise"><span class="exercise-name">Circuit includes:</span> Battle Ropes, Box Jumps, Kettlebell Swings, Sled Push</div>
+        </div>
+      </div>
+      
+      <div class="note">
+        <p>Rest on Day 7. Incorporate proper warm-up sets before your working sets. For heavy days, use 80-90% of your 1RM. Track your progress and aim to increase weight or reps each week.</p>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    <p>Always consult with a healthcare professional before starting any new fitness regimen.</p>
+  </footer>
+  
+  <script>
+    // Function to initialize the abbreviation transition for a section
+    function initAbbreviationTransition(abbreviatedId, fullId) {
+      setTimeout(() => {
+        const abbreviatedView = document.getElementById(abbreviatedId);
+        const fullView = document.getElementById(fullId);
+        
+        if (abbreviatedView && fullView) {
+          // Fade out abbreviations
+          abbreviatedView.style.opacity = '0';
+          abbreviatedView.style.transform = 'translateY(20px)';
+          abbreviatedView.style.transition = 'all 0.5s ease';
+          
+          // After fade out completes, show full view
+          setTimeout(() => {
+            abbreviatedView.style.display = 'none';
+            fullView.style.display = 'block';
+            
+            // Animate in each exercise with a delay
+            const exercises = fullView.querySelectorAll('.exercise');
+            exercises.forEach((exercise, index) => {
+              setTimeout(() => {
+                exercise.classList.add('visible');
+              }, index * 100);
+            });
+          }, 500);
+        }
+      }, 2000);
+    }
+    
+    // Initialize transitions for all sections
+    document.addEventListener('DOMContentLoaded', () => {
+      initAbbreviationTransition('beginner-abbreviated', 'beginner-full');
+      initAbbreviationTransition('intermediate-abbreviated', 'intermediate-full');
+      initAbbreviationTransition('advanced-abbreviated', 'advanced-full');
+    });
+    
+    function showSection(sectionId) {
+      // Hide all sections
+      const sections = document.querySelectorAll('.workout-section');
+      sections.forEach(section => {
+        section.classList.remove('active');
+      });
+      
+      // Show selected section
+      const newSection = document.getElementById(sectionId);
+      newSection.classList.add('active');
+      
+      // Initialize the transition for the newly shown section
+      const abbreviatedId = `${sectionId}-abbreviated`;
+      const fullId = `${sectionId}-full`;
+      initAbbreviationTransition(abbreviatedId, fullId);
+      
+      // Update active button
+      const buttons = document.querySelectorAll('.section-button');
+      buttons.forEach(button => {
+        button.classList.remove('active');
+      });
+      
+      // Find button that was clicked and make it active
+      const buttons2 = document.querySelectorAll('.section-button');
+      for (let i = 0; i < buttons2.length; i++) {
+        if (buttons2[i].textContent.toLowerCase() === sectionId) {
+          buttons2[i].classList.add('active');
+        }
+      }
+    }
+  </script>
+</body>
+</html>
